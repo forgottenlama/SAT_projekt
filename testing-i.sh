@@ -2,7 +2,7 @@
 
 INDIR="test"
 SOLVER="python3 superstring.py"
-OUTCSV="results.csv"
+OUTCSV="results3.csv"
 
 # Hlavička CSV
 echo "subor,cas_s,klauzuly" > "$OUTCSV"
