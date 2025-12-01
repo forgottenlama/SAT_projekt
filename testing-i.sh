@@ -2,7 +2,9 @@
 
 INDIR="test"
 SOLVER="python3 superstring.py"
-OUTCSV="results3.csv"
+OUTCSV="${1:-results.csv}"  # Argument 1, alebo default "results.csv"
+
+# spustaj ./testing-i.sh [vystupny_subor.csv]
 
 # Hlavička CSV
 echo "subor,cas_s,klauzuly" > "$OUTCSV"
@@ -27,6 +29,7 @@ for i in $(seq 1 50); do
 
     # Pridanie riadku do CSV
     echo "$(basename "$file"),$runtime_s,$clauses" >> "$OUTCSV"
+    echo "Test $file: čas = ${runtime_s}s, klauzuly = $clauses"
 done
 
 echo "Výsledky uložené v $OUTCSV"

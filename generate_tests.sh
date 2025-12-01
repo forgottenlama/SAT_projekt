@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#zavislost na k
+
 OUTDIR="test"
 mkdir -p "$OUTDIR"
 

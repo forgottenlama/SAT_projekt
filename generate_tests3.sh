@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# zavislost na dlzke stringov
+
 N_of_tests=50
 OUTDIR="test"
 
@@ -22,9 +24,9 @@ generate_binary() {
 for i in $(seq 1 $N_of_tests); do
     filename="$OUTDIR/Test_i_${i}.in"
     : > "$filename"   # vytvorí/čistí súbor
-    echo "$(( (i**2)*4 ))" >> "$filename"
+    echo "$(( (i)*4 ))" >> "$filename"
     for j in $(seq 1 10); do
-        len=$(( i**2 )) # dĺžka reťazca je i^2
+        len=$(( i )) # dĺžka reťazca je i
         generate_binary "$len" >> "$filename"
     done
 done

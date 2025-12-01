@@ -43,8 +43,8 @@ def encode(k, strings):
 def call_solver(cnf, nr_vars, output_name, solver_name, verbosity):
     # print CNF into formula.cnf in DIMACS format
     print(f"CLAUSES: {len(cnf)}")
-    print(f"VARIABLES: {nr_vars}")
-    print(cnf)
+    #print(f"VARIABLES: {nr_vars}")
+    #print(cnf)
     with open(output_name, "w") as file:
         file.write("p cnf " + str(nr_vars) + " " + str(len(cnf)) + '\n')
         for clause in cnf:

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# zavislost na pocte stringov
+
 N_of_tests=50
 OUTDIR="test"
 
@@ -22,9 +24,9 @@ generate_binary() {
 for i in $(seq 1 $N_of_tests); do
     filename="$OUTDIR/Test_i_${i}.in"
     : > "$filename"   # vytvorí/čistí súbor
-    echo "$i" >> "$filename"
-    for j in $(seq 1 $i); do
-        len=$(( RANDOM % 100 + 1 ))
+    echo "$((10*i))" >> "$filename"
+    for j in $(seq 1 $i); do 
+        len=10 # dĺžka reťazca je 10
         generate_binary "$len" >> "$filename"
     done
 done

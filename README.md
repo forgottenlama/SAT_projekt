@@ -118,3 +118,10 @@ A toto sa teda opakuje s rôznymi i *viď. vysvetlenie $\bigwedge$*
 
 ## Testovanie: 
 Z môjho testovania vyšlo že samostatné $k$ má minimálny až žiadny vplyv na zložitosť, preto sa skôr zamerám na dĺžku a počet stringov (z čoho by podľa mňa mali vyjsť zaujímavejšie výsledky) 
+
+Graf 1: Počet stringov vs čas riešenia (dĺžka stringov=10) počet stringov rastie vždy o 1
+![Graf 1](graf1.png)
+Graf 2: Dĺžka stringov vs čas riešenia (počet stringov=10) dlžka stringov rastie vždy o 1
+![Graf 2](graf2.png)
+
+Vidíme že čas aj počet klauzúl rastie exponenciálne s počtom stringov aj s dĺžkou stringov. Pričom počet stringov má väčší vplyv na zložitosť ako dĺžka stringov.
