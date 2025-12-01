@@ -8,6 +8,14 @@ def load_input(input_file):
     with open(input_file, 'r') as file:
         k = int(file.readline().strip())
         strings = [line.strip() for line in file if line.strip()]
+    
+    # Kontrola či všetky stringy sa zmestia do superstringu dĺžky k
+    for i, s in enumerate(strings):
+        if len(s) > k:
+            print(f"ERROR: String #{i+1} má dĺžku {len(s)}, ale superstring má dĺžku len {k}.")
+            print(f"Nie je možné zmestiť všetky stringy do superstringu.")
+            exit(1)
+    
     return k, strings
 
 def encode(k, strings):
@@ -35,6 +43,8 @@ def encode(k, strings):
 def call_solver(cnf, nr_vars, output_name, solver_name, verbosity):
     # print CNF into formula.cnf in DIMACS format
     print(f"CLAUSES: {len(cnf)}")
+    print(f"VARIABLES: {nr_vars}")
+    print(cnf)
     with open(output_name, "w") as file:
         file.write("p cnf " + str(nr_vars) + " " + str(len(cnf)) + '\n')
         for clause in cnf:
@@ -46,6 +56,7 @@ def call_solver(cnf, nr_vars, output_name, solver_name, verbosity):
 def print_result(result, k):
     # interpret Glucose output
     lines = result.stdout.splitlines()
+    print(lines)
     for line in lines:
         if line.startswith('v '):
             parts = line[2:].split()
